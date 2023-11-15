@@ -18,7 +18,7 @@ padding-bottom: clamp(15px, 5%, 100px);
 }
 
 .topnav {
-  background-color: #white;
+  background-color: #ffffff;
   overflow: hidden;
   padding-top: clamp(15px, 5%, 100px);
 }
@@ -48,7 +48,7 @@ padding-bottom: clamp(15px, 5%, 100px);
 h1{ font-size: min( max(30px, 4vw), 50px);
  }
 
-h2,{ font-size: min( max(16px, 4vw), 40px);
+h2{ font-size: min( max(16px, 4vw), 40px);
  }
 
 h3,p,a { font-size: min( max(16px, 4vw), 30px);
@@ -57,4 +57,5 @@ h3,p,a { font-size: min( max(16px, 4vw), 30px);
  .responsive-image {
    max-width: 100%; /* This will make the image scale down if it has to */
    height: auto; /* This will preserve the aspect ratio of the image */
+   text-align: center ;
  }
