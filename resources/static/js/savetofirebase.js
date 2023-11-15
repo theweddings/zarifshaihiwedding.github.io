@@ -1,20 +1,34 @@
-function saveToFirebase(name, title, message) {
-    var dataObject = {
-        name: name,
-        title: title,
-        message: message
-    };
+<script>
+    const wishes = document.getElementById('wishesform');
 
-    firebase
-        .database()
-        .ref('subscription-entries')
-        .push()
-        .set(dataObject)
-        .then(function(snapshot) {
-            success(); // some success method
-        })
-        .catch(function(error) {
-            console.log('error: ' + error);
-            error(); // some error method
-        });
-}
+    subscriptionForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const title = document.getElementById('title').value;
+        const message = document.getElementById('wishes').value;
+
+        saveToFirebase(name, title, wishes);
+    });
+
+    function saveToFirebase(name, title, wishes) {
+        var dataObject = {
+            name: name,
+            title: title,
+            wishes: wishes
+        };
+
+        firebase
+            .database()
+            .ref('wishes-entries')
+            .push()
+            .set(dataObject)
+            .then(function(snapshot) {
+                console.log('wishes saved successfully!');
+                subscriptionForm.reset();
+            })
+            .catch(function(error) {
+                console.error('Error saving wishes:', error);
+            });
+    }
+</script>
